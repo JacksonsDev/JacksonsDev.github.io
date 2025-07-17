@@ -110,3 +110,8 @@ button {
 button:hover {
     background-color: #005fa3;
 }
+
+#form-status {
+    margin-top: 1rem;
+    font-weight: bold;
+}
