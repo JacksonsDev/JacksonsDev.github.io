@@ -34,3 +34,44 @@ section {
     text-decoration: none;
     color: #007acc;
 }
+
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.project-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 280px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.project-card a {
+    text-decoration: none;
+    color: #007acc;
+    font-weight: bold;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
