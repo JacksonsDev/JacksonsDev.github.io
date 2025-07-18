@@ -84,7 +84,8 @@ form {
     max-width: 500px;
     margin: 0 auto;
     background: #fff;
-    padding: 1rem;
+    padding: 2rem;
+    padding-right: 3rem;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
@@ -95,16 +96,18 @@ input, textarea {
     margin-top: 0.25rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+    resize: none;
 }
 
 button {
     margin-top: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 1.1rem 1rem;
     background-color: #007acc;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 18px;
 }
 
 button:hover {
@@ -114,4 +117,9 @@ button:hover {
 #form-status {
     margin-top: 1rem;
     font-weight: bold;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
 }
