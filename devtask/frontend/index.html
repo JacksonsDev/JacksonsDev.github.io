@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevTask | Task Manager for Developers</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>DevTask</h1>
+      <nav>
+        <button id="home-btn">Home</button>
+        <button id="login-btn">Login</button>
+        <button id="register-btn">Register</button>
+        <button id="logout-btn" class="hidden">Logout</button>
+      </nav>
+    </header>
+    <main>
+      <span id="welcome-message"></span>
+      <!-- Welcome Section -->
+       <section id="welcome-section">
+        <h1>Welcome to the task tracker for devs</h1>
+        <p>Please register or login to continue.</p>
+       </section>
+      <!-- Registration form -->
+      <section id="register-section" class="auth-form hidden">
+        <h2>Create Account</h2>
+        <form id="register-form">
+          <input type="text" placeholder="Username" name="username" required />
+          <input type="email" placeholder="Email" name="email" required />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            required
+          />
+          <button type="submit">Register</button>
+        </form>
+      </section>
+
+      <!-- Login Form -->
+      <section id="login-section" class="auth-form hidden">
+        <h2>Login</h2>
+        <form id="login-form">
+          <input type="email" placeholder="Email" name="email" required />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+      </section>
+
+      <!-- Task Dashboard -->
+      <section id="dashboard" class="hidden">
+        <h2>Your tasks</h2>
+        <form id="task-form">
+          <input type="text" placeholder="Task Title" name="title" required />
+          <textarea
+            name="description"
+            placeholder="Task Description"
+            required
+          ></textarea>
+          <button type="submit">Add Task</button>
+        </form>
+        <div id="task-list" class="task-grid"></div>
+      </section>
+    </main>
+    <footer>
+      <p>2025 Jacksons Dev | Dev Task</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

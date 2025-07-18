@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+header {
+    background: #2c3e50;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav {
+    margin-top: 0.5rem;
+}
+
+nav button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+nav button:hover {
+    background: #2980b9;
+}
+
+main {
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+.auth-form, dashboard {
+    margin-top: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form input,
+.auth-form textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+
+.auth-form button,
+#task-form button {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.7rem 1,2rem;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.auth-form button:hover,
+#task-form button:hover {
+    background: #219150;
+}
+
+.task-grid {
+    margin-top: 2rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit);
+}
+
+.task-card {
+    background: #fff;
+    padding: 1rem;
+    border-left: 4px solid #3498db;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    margin-top: 4rem;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+#welcome-message {
+    font-size: 48px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+#welcome-section {
+    text-align: center;
+}
