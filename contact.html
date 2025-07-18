@@ -13,14 +13,18 @@
         Junior Software Developer | Full-Stack Enthusiast | BSc Computing and IT
       </p>
       <nav>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+        <a href="/index.html">Home</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/contact.html">Contact</a>
       </nav>
     </header>
     <section id="contact">
       <h2>Contact me</h2>
-      <form id="contact-form" action="https://formspree.io/f/mqalaaey" method="POST">
+      <form
+        id="contact-form"
+        action="https://formspree.io/f/mqalaaey"
+        method="POST"
+      >
         <p id="form-status"></p>
         <label for="name">Name:</label><br />
         <input type="text" id="name" name="name" required /><br /><br />
@@ -40,36 +44,36 @@
     </footer>
 
     <script>
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
+      const form = document.getElementById("contact-form");
+      const status = document.getElementById("form-status");
 
-  form.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    const data = new FormData(form);
-    const action = form.action;
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const data = new FormData(form);
+        const action = form.action;
 
-    try {
-      const response = await fetch(action, {
-        method: "POST",
-        body: data,
-        headers: {
-          Accept: "application/json",
-        },
+        try {
+          const response = await fetch(action, {
+            method: "POST",
+            body: data,
+            headers: {
+              Accept: "application/json",
+            },
+          });
+
+          if (response.ok) {
+            status.innerHTML = "✅ Message sent! I’ll get back to you shortly.";
+            status.style.color = "green";
+            form.reset();
+          } else {
+            status.innerHTML = "❌ There was an issue. Please try again.";
+            status.style.color = "red";
+          }
+        } catch (error) {
+          status.innerHTML = "❌ Error sending form. Check your connection.";
+          status.style.color = "red";
+        }
       });
-
-      if (response.ok) {
-        status.innerHTML = "✅ Message sent! I’ll get back to you shortly.";
-        status.style.color = "green";
-        form.reset();
-      } else {
-        status.innerHTML = "❌ There was an issue. Please try again.";
-        status.style.color = "red";
-      }
-    } catch (error) {
-      status.innerHTML = "❌ Error sending form. Check your connection.";
-      status.style.color = "red";
-    }
-  });
-</script>
+    </script>
   </body>
 </html>
