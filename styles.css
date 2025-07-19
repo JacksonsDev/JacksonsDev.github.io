@@ -177,3 +177,45 @@ button:hover {
     transform: scale(1.05);
     background-color: #005fa3;
 }
+
+#skills-alt {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.skills-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+}
+
+.skills-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.skills-icon {
+    flex: 1;
+    text-align: center;
+}   
+
+.skills-icon img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+.skills-description {
+    flex: 2;
+    font-size: 1.5rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+.skills-heading {
+    justify-content: center;
+    display: flex;
+}
