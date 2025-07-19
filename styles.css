@@ -147,37 +147,6 @@ button:hover {
     font-size: 40px;
 }
 
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    padding: 1rem 0;
-}
-
-.skill-badge {
-    background-color: #007acc;
-    color: white;
-    padding: 10px 16px;
-    border-radius: 25px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: transform 0.2s ease;
-}
-
-.skill-badge i {
-    font-size: 1.2rem;
-}
-
-.skill-badge:hover {
-    transform: scale(1.05);
-    background-color: #005fa3;
-}
-
 #skills-alt {
     max-width: 1000px;
     margin: 0 auto;
@@ -191,10 +160,22 @@ button:hover {
     gap: 2rem;
     margin: 3rem 0;
     flex-wrap: wrap;
+    opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .skills-row.reverse {
     flex-direction: row-reverse;
+    opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.skills-row.visible,
+.skills-row-reverse.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .skills-icon {
@@ -218,4 +199,27 @@ button:hover {
 .skills-heading {
     justify-content: center;
     display: flex;
+}
+
+#welcome {
+    background-color: #f9f9f9;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.welcome-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.welcome-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.welcome-container p {
+    font-size: 1.25rem;
+    color: #333;
+    line-height: 1.6;
 }
