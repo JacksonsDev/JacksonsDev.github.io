@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "./config";
+import { API_BASE_URL } from "./config.js";
 
 const loginSection = document.getElementById('login-section');
 const registerSection = document.getElementById('register-section');
