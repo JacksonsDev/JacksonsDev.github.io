@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 // Register route (already working)
-router.post('/auth/register', async (req, res) => {
+router.post('/register', async (req, res) => {
   const { username, email, password } = req.body;
   try {
     const existingUser = await User.findOne({ email });
@@ -21,7 +21,7 @@ router.post('/auth/register', async (req, res) => {
 });
 
 // ✅ Login route
-router.post('/auth/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   try {
     console.log('Attempting login for email:', email);
