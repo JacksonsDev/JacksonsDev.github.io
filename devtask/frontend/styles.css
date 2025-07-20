@@ -20,46 +20,44 @@ header {
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  flex-wrap: wrap;
 }
 
 .branding {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .logo {
-    height: 150px;
-    width: auto;
+  height: 60px;
+  width: auto;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 4rem;
-    color: #ccc;
+  font-size: 1.8rem;
+  color: #ccc;
 }
 
 nav {
-    margin-top: 0.5rem;
+  position: relative;
 }
 
-nav button {
-  margin-left: 1rem;
-  font-size: 1.2rem;
-  padding: 1.5rem 2rem;
-  font-weight: bold;
-  background-color: #007acc;
-  color: white;
+.burger {
+  display: none;
+  font-size: 2rem;
+  background: none;
   border: none;
-  border-radius: 4px;
+  color: white;
   cursor: pointer;
+  margin-left: auto;
 }
+
+
 
 nav button:hover {
   background-color: #005ea2;
@@ -204,4 +202,69 @@ footer {
 
 .task-completed:hover {
     height: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links li button {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav-links li button:hover {
+  background-color: #005ea2;
+}
+
+/* --- Responsive Layout --- */
+@media screen and (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .burger {
+    display: block;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    margin-top: 1rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: right;
+  }
+
+  .nav-links li button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
 }
