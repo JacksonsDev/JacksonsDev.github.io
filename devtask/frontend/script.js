@@ -2,6 +2,7 @@ const loginSection = document.getElementById('login-section');
 const registerSection = document.getElementById('register-section');
 const dashboard = document.getElementById('dashboard');
 const welcomeSection = document.getElementById('welcome-section');
+const completedSection = document.getElementById('completed-section');
 
 const loginBtn = document.getElementById('login-btn');
 const registerBtn = document.getElementById('register-btn');
@@ -130,18 +131,76 @@ taskForm.addEventListener('submit', (e) => {
 
 function loadTasks() {
     taskList.innerHTML = '';
+    completedSection.innerHTML = '';
+
     const user = JSON.parse(localStorage.getItem('currentUser'));
     if (!user) return;
 
     const userTasks = JSON.parse(localStorage.getItem(`tasks_${user.email}`) || '[]');
+
     userTasks.forEach(task => {
         const card = document.createElement('div');
         card.classList.add('task-card');
-        card.innerHTML = `
-        <h3>${task.title}</h3>
-        <p>${task.description}</p>`;
-        taskList.appendChild(card);
+        if (task.completed) {
+            card.classList.add('task-completed');
+            card.innerHTML = `<h3>${task.title}</h3><p>${task.description}</p>`;
+            card.addEventListener('mouseenter', () => card.classList.add('expanded'));
+            card.addEventListener('mouseleave', () => card.classList.remove('expanded'));
+        } else {
+            card.innerHTML = `<h3>${task.title}</h3><p>${task.description}</p>`;
+        }
+
+        const actions = document.createElement('div');
+        actions.className = 'task-actions';
+
+        const completeBtn = document.createElement('button');
+        completeBtn.innerHTML = task.completed ? '↩️' : '✅';
+        completeBtn.className = 'task-btn';
+        completeBtn.title = task.completed ? 'Mark as incomplete' : 'Mark as complete';
+        completeBtn.onclick = () => toggleComplete(task.id);
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.innerHTML = '❌';
+        deleteBtn.className = 'task-btn';
+        deleteBtn.title = 'Delete task';
+        deleteBtn.onclick = () => deleteTask(task.id);
+
+        actions.appendChild(completeBtn);
+        actions.appendChild(deleteBtn);
+        card.appendChild(actions);
+
+        if (task.completed) {
+            completedSection.appendChild(card);
+        } else {
+            taskList.appendChild(card);
+        }
     });
+}
+
+// Toggle task completion
+function toggleComplete(taskId) {
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const key = `tasks_${user.email}`;
+    const tasks = JSON.parse(localStorage.getItem(key) || '[]');
+
+    const updated = tasks.map(t => t.id === taskId ? { ...t, completed: !t.completed } : t);
+    localStorage.setItem(key, JSON.stringify(updated));
+    loadTasks();
+}
+
+// Delete task with confirmation
+function deleteTask(taskId) {
+    if (!confirm("Are you sure you want to delete this task? This action cannot be undone.")) {
+        return;
+    }
+
+    const user = JSON.parse(localStorage.getItem('currentUser'));
+    const key = `tasks_${user.email}`;
+    const tasks = JSON.parse(localStorage.getItem(key) || '[]');
+
+    const updated = tasks.filter(t => t.id !== taskId);
+    localStorage.setItem(key, JSON.stringify(updated));
+    loadTasks();
 }
 
 
