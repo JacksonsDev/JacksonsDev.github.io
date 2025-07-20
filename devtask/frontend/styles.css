@@ -63,17 +63,22 @@ main {
 
 .auth-form button,
 #task-form button {
-    background: #27ae60;
+    background-color: #3498db;
+    width: auto;
     color: white;
     border: none;
-    padding: 0.7rem 1,2rem;
+    padding: 0.7rem 1.5rem;
     border-radius: 3px;
     cursor: pointer;
+    display: block;
+    font-size: 1rem;
+    transition: background-color 0.25s ease-in-out;
+    margin: 1rem auto 0;
 }
 
 .auth-form button:hover,
 #task-form button:hover {
-    background: #219150;
+    background: #2980b9;
 }
 
 .task-grid {
@@ -112,3 +117,25 @@ footer {
 #welcome-section {
     text-align: center;
 }
+
+#task-form {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    margin-top: 2rem;
+}
+
+#task-form input[type='text'],
+#task-form textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
+    resize: none;
+} 
