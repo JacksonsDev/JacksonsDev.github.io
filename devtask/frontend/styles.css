@@ -22,7 +22,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap;
 }
 
 .branding {
@@ -32,7 +31,7 @@ header {
 }
 
 .logo {
-  height: 60px;
+  height: 80px;
   width: auto;
 }
 
@@ -63,7 +62,7 @@ nav button:hover {
 }
 
 main {
-  padding: 2rem 1rem;
+  padding: 2rem;
   max-width: 800px;
   margin: auto;
 }
@@ -146,32 +145,4 @@ footer {
 
 .hidden {
   display: none;
-}
-
-/* 🔁 Responsive Design */
-@media (max-width: 768px) {
-  .header-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    padding-top: 1rem;
-  }
-
-  nav button {
-    width: 100%;
-    margin-bottom: 0.5rem;
-  }
-
-  .cta-buttons button {
-    width: 100%;
-  }
-
-  .task-grid {
-    grid-template-columns: 1fr;
-  }
 }
