@@ -2,11 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const authRoutes = require('./routes/auth');
-const taskRoutes = require('./routes/task');
-
-app.use('/api/tasks', taskRoutes);
-
+const authRoutes = require('./routes/auth.js');
+const taskRoutes = require('./routes/tasks.js');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -18,6 +15,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.error('DB connection error:', err));
 
 app.use('/api/auth', authRoutes);
+app.use('/api/tasks', taskRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
