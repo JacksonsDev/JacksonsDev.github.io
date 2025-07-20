@@ -16,10 +16,10 @@ const registerForm = document.getElementById('register-form');
 const taskForm = document.getElementById('task-form');
 const taskList = document.getElementById('task-list');
 
-const welcomeMessage = document.getElementById('welcome-message');
+
 
 function showDashboard(username) {
-    welcomeMessage.textContent = `Welcome, ${username}`;
+
     loginSection.classList.add('hidden');
     registerSection.classList.add('hidden');
     dashboard.classList.remove('hidden');
