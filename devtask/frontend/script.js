@@ -129,21 +129,27 @@ loginForm.addEventListener('submit', async (e) => {
 });
 
 // Task Handling
-taskForm.addEventListener('submit', (e) => {
+taskForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const title = taskForm.title.value;
     const description = taskForm.description.value;
-
-    const task = { title, description, id: Date.now() };
     const user = JSON.parse(localStorage.getItem('currentUser'));
-    const userTasksKey = `tasks_${user.email}`;
-    const existingTasks = JSON.parse(localStorage.getItem(userTasksKey) || '[]');
 
-    existingTasks.push(task);
-    localStorage.setItem(userTasksKey, JSON.stringify(existingTasks));
-
-    taskForm.reset();
-    loadTasks();
+    try {
+        const res = await fetch(`${API_BASE_URL}/api/tasks`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${user.token}`
+            },
+            body: JSON.stringify({ title, description })
+        });
+        const task = await res.json();
+        taskForm.reset();
+        loadTasks();
+    } catch (err) {
+        alert("Failed to add task");
+    }
 });
 
 function loadTasks() {
