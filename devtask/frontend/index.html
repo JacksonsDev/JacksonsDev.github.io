@@ -9,6 +9,7 @@
   </head>
   <body>
     <header>
+
       <div class="header-container">
         <div class="branding">
           <img src="../images/JD_Logo.png" alt="Company Logo" class="logo" />
@@ -49,17 +50,22 @@
         </form>
       </section>
 
+            <!-- Task Dashboard -->
       <section id="dashboard" class="hidden">
         <h2>Create New Task</h2>
         <form id="task-form">
           <input type="text" placeholder="Task Title" name="title" required />
-          <textarea name="description" placeholder="Task Description" required></textarea>
+          <textarea
+            name="description"
+            placeholder="Task Description"
+            required
+          ></textarea>
           <button type="submit">Add Task</button>
         </form>
-        <hr />
+                <br><hr><br>
         <h2>Your Tasks</h2>
         <div id="task-list" class="task-grid"></div>
-        <hr />
+        <br><hr><br>
         <h2>Completed Tasks</h2>
         <div id="completed-section" class="task-grid"></div>
       </section>
