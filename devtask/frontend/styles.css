@@ -22,28 +22,34 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .branding {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex: 1 1 100%;
+  margin-bottom: 1rem;
 }
 
 .logo {
-  height: 80px;
+  height: 60px;
   width: auto;
 }
 
 .branding h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #ecf0f1;
 }
 
 nav .nav-links {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex: 1 1 100%;
 }
 
 nav button {
@@ -62,7 +68,7 @@ nav button:hover {
 }
 
 main {
-  padding: 2rem;
+  padding: 2rem 1rem;
   max-width: 800px;
   margin: auto;
 }
@@ -145,4 +151,41 @@ footer {
 
 .hidden {
   display: none;
+}
+
+/* 🔁 Responsive Design */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .branding {
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav .nav-links {
+    justify-content: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  nav button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-buttons button {
+    width: 100%;
+  }
+
+  .auth-form,
+  #task-form {
+    padding: 1rem;
+  }
+
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
 }
