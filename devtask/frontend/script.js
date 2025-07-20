@@ -1,6 +1,7 @@
 const loginSection = document.getElementById('login-section');
 const registerSection = document.getElementById('register-section');
 const dashboard = document.getElementById('dashboard');
+const welcomeSection = document.getElementById('welcome-section');
 
 const loginBtn = document.getElementById('login-btn');
 const registerBtn = document.getElementById('register-btn');
@@ -24,6 +25,7 @@ function showDashboard(username) {
     homeBtn.classList.add('hidden');
     loginBtn.classList.add('hidden');
     registerBtn.classList.add('hidden');
+    welcomeSection.classList.add('hidden');
     loadTasks();
 }
 
@@ -43,6 +45,7 @@ function logoutUser() {
     dashboard.classList.add('hidden');
     welcomeMessage.textContent = '';
     logoutBtn.classList.add('hidden');
+    welcomeSection.classList.remove('hidden');
     showWelcome();
 }
 
