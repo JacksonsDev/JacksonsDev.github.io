@@ -8,23 +8,22 @@
     <link rel="icon" href="../images/JD_Favicon.png" type="image/png" />
   </head>
   <body>
-<header>
-  <div class="header-container">
-    <div class="branding">
-      <img src="../images/JD_Logo.png" alt="Company Logo" class="logo" />
-      <h1>Jackson Digital</h1>
-    </div>
-    <nav>
-      <button class="burger" id="burger">&#9776;</button>
-      <ul class="nav-links" id="nav-links">
-        <li><button id="home-btn">Home</button></li>
-        <li><button id="login-btn">Login</button></li>
-        <li><button id="register-btn">Register</button></li>
-        <li><button id="logout-btn" class="hidden">Logout</button></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <header>
+      <div class="header-container">
+        <div class="branding">
+          <img src="../images/JD_Logo.png" alt="Company Logo" class="logo" />
+          <h1>Jackson Digital</h1>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><button id="home-btn">Home</button></li>
+            <li><button id="login-btn">Login</button></li>
+            <li><button id="register-btn">Register</button></li>
+            <li><button id="logout-btn" class="hidden">Logout</button></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
     <main>
       <section id="welcome-section">
@@ -39,12 +38,7 @@
         <form id="register-form">
           <input type="text" placeholder="Username" name="username" required />
           <input type="email" placeholder="Email" name="email" required />
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            required
-          />
+          <input type="password" placeholder="Password" name="password" required />
           <button type="submit">Register</button>
         </form>
       </section>
@@ -53,26 +47,16 @@
         <h2>Login</h2>
         <form id="login-form">
           <input type="email" placeholder="Email" name="email" required />
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            required
-          />
+          <input type="password" placeholder="Password" name="password" required />
           <button type="submit">Login</button>
         </form>
       </section>
 
-      <!-- Task Dashboard -->
       <section id="dashboard" class="hidden">
         <h2>Create New Task</h2>
         <form id="task-form">
           <input type="text" placeholder="Task Title" name="title" required />
-          <textarea
-            name="description"
-            placeholder="Task Description"
-            required
-          ></textarea>
+          <textarea name="description" placeholder="Task Description" required></textarea>
           <button type="submit">Add Task</button>
         </form>
         <br /><hr /><br />
@@ -83,17 +67,10 @@
         <div id="completed-section" class="task-grid"></div>
       </section>
     </main>
+
     <footer>
       <p>2025 Jacksons Dev | Dev Task</p>
     </footer>
     <script type="module" src="script.js"></script>
-    <script>
-      const burger = document.getElementById("burger");
-      const navLinks = document.getElementById("nav-links");
-
-      burger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-      });
-    </script>
   </body>
 </html>
