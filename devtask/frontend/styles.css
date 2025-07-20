@@ -1,179 +1,148 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
 }
 
 header {
-    background: #2c3e50;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+  background: #273038;
+  color: #fff;
+  padding: 1rem 2rem;
 }
 
-nav {
-    margin-top: 0.5rem;
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  height: 80px;
+  width: auto;
+}
+
+.branding h1 {
+  font-size: 2rem;
+  color: #ecf0f1;
+}
+
+nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
 }
 
 nav button {
-    margin: 0 0.5rem;
-    padding: 0.5rem 1rem;
-    background: #3498db;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  font-weight: bold;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 nav button:hover {
-    background: #2980b9;
+  background-color: #005ea2;
 }
 
 main {
-    padding: 2rem;
-    max-width: 800px;
-    margin: auto;
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
 }
 
-.auth-form, dashboard {
-    margin-top: 2rem;
-    background: white;
-    padding: 1.5rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+#welcome-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#welcome-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+#welcome-section p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-buttons button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.cta-buttons button:hover {
+  background-color: #2980b9;
+}
+
+.auth-form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
 }
 
 .auth-form input,
 .auth-form textarea {
-    width: 100%;
-    padding: 0.7rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
 
-
-.auth-form button,
-#task-form button {
-    background-color: #3498db;
-    width: auto;
-    color: white;
-    border: none;
-    padding: 0.7rem 1.5rem;
-    border-radius: 3px;
-    cursor: pointer;
-    display: block;
-    font-size: 1rem;
-    transition: background-color 0.25s ease-in-out;
-    margin: 1rem auto 0;
+.auth-form button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: block;
+  margin: auto;
 }
 
-.auth-form button:hover,
-#task-form button:hover {
-    background: #2980b9;
+.auth-form button:hover {
+  background-color: #2980b9;
 }
 
 .task-grid {
-    margin-top: 2rem;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit);
-}
-
-.task-card {
-    background: #fff;
-    padding: 1rem;
-    border-left: 4px solid #3498db;
-    border-radius: 4px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 footer {
-    margin-top: 4rem;
-    background: #2c3e50;
-    color: white;
-    text-align: center;
-    padding: 1rem;
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 4rem;
 }
 
 .hidden {
-    display: none;
-}
-
-#welcome-message {
-    font-size: 48px;
-    font-weight: bold;
-    font-family: sans-serif;
-}
-
-#welcome-section {
-    text-align: center;
-}
-
-#task-form {
-    background: #ffffff;
-    padding: 1.5rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    margin-top: 2rem;
-}
-
-#task-form input[type='text'],
-#task-form textarea {
-    width: 100%;
-    padding: 0.9rem 1rem;
-    margin-bottom: 1.2rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-family: inherit;
-    background-color: #fafafa;
-    transition: border-color 0.3s ease;
-    resize: none;
-} 
-
-.task-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.task-btn {
-    border: none;
-    background: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
-    transition: background 0.2s ease-in-out;
-}
-
-.task-btn:hover {
-    background: #eee;
-}
-
-.task-completed {
-    background-color: #ecf0f1;
-    border-left: 4px solid #2ecc71;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    height: 3rem;
-    cursor: pointer;
-}
-
-.task-completed.expanded {
-    height: auto;
-}
-
-.task-completed:hover {
-    height: auto;
+  display: none;
 }
