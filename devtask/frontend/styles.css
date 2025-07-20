@@ -54,9 +54,7 @@ nav {
   border: none;
   color: white;
   cursor: pointer;
-  margin-left: auto;
 }
-
 
 
 nav button:hover {
@@ -229,20 +227,28 @@ footer {
 /* --- Responsive Layout --- */
 @media screen and (max-width: 768px) {
   .header-container {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .burger {
     display: block;
-    margin-left: auto;
   }
 
   .nav-links {
     flex-direction: column;
-    width: 100%;
     display: none;
-    margin-top: 1rem;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #273038;
+    width: 90%;
+    text-align: center;
+    padding: 1rem 0;
+    border-radius: 5px;
+    z-index: 100;
   }
 
   .nav-links.active {
@@ -251,20 +257,20 @@ footer {
 
   .nav-links li {
     width: 100%;
-    text-align: right;
+    margin: 0.5rem 0;
   }
 
   .nav-links li button {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1.1rem;
+    width: auto;
+    padding: 0.4rem 1rem;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 4px;
   }
 
-  .logo {
-    height: 50px;
-  }
-
-  header h1 {
-    font-size: 1.4rem;
+  .nav-links li button:hover {
+    background-color: #007acc;
   }
 }
