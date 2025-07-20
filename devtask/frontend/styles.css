@@ -22,15 +22,13 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .branding {
   display: flex;
   align-items: center;
   gap: 1rem;
-  flex: 1 1 100%;
-  margin-bottom: 1rem;
 }
 
 .logo {
@@ -39,17 +37,14 @@ header {
 }
 
 .branding h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #ecf0f1;
 }
 
 nav .nav-links {
   list-style: none;
   display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  flex: 1 1 100%;
+  gap: 1rem;
 }
 
 nav button {
@@ -157,18 +152,14 @@ footer {
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .branding {
-    justify-content: center;
+    align-items: center;
     text-align: center;
   }
 
-  nav .nav-links {
-    justify-content: center;
+  .nav-links {
+    flex-direction: column;
     width: 100%;
-    gap: 0.5rem;
+    padding-top: 1rem;
   }
 
   nav button {
@@ -178,11 +169,6 @@ footer {
 
   .cta-buttons button {
     width: 100%;
-  }
-
-  .auth-form,
-  #task-form {
-    padding: 1rem;
   }
 
   .task-grid {
