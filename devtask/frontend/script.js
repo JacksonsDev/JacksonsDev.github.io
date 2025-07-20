@@ -1,3 +1,5 @@
+import { API_BASE_URL } from "./config";
+
 const loginSection = document.getElementById('login-section');
 const registerSection = document.getElementById('register-section');
 const dashboard = document.getElementById('dashboard');
@@ -72,43 +74,58 @@ homeBtn.addEventListener('click', () => {
 
 // Register and Login (localstorage Sim until backend built)
 
-registerForm.addEventListener('submit', (e) => {
+registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const username = registerForm.username.value;
     const email = registerForm.email.value;
     const password = registerForm.password.value;
 
-    const users = JSON.parse(localStorage.getItem('users') || '{}');
+    try {
+        const res = await fetch(`${API_BASE_URL}/auth/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, email, password }),
+        });
 
-    if (users[email]) {
-        alert('Account already exists. Please login instead.');
-        return;
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message || "Registration failed");
+
+        alert("Registration successful. You are now logged in.");
+        localStorage.setItem('currentUser', JSON.stringify({ username, email, token: data.token }));
+        registerForm.reset();
+        showDashboard(username);
+
+    } catch (err) {
+        alert(err.message);
     }
-
-    users[email] = { username, password };
-    localStorage.setItem('users', JSON.stringify(users));
-    localStorage.setItem('currentUser', JSON.stringify({ email, username }));
-
-    registerForm.reset();
-    showDashboard(username);
 });
 
-loginForm.addEventListener('submit', (e) => {
+loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = loginForm.email.value;
     const password = loginForm.password.value;
 
-    const users = JSON.parse(localStorage.getItem('users') || '{}');
-    const user = users[email];
+    try {
+        const res = await fetch(`${API_BASE_URL}/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password }),
+        });
 
-    if (!user || user.password !== password) {
-        alert('Invalid Credentials. Please check and try again.');
-        return;
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.message || "Login failed");
+
+        localStorage.setItem('currentUser', JSON.stringify({ 
+            username: data.user.username, 
+            email: data.user.email,
+            token: data.token
+        }));
+        loginForm.reset();
+        showDashboard(data.user.username);
+
+    } catch (err) {
+        alert(err.message);
     }
-
-    localStorage.setItem('currentUser', JSON.stringify({ email, username: user.username }));
-    loginForm.reset();
-    showDashboard(user.username);
 });
 
 // Task Handling
