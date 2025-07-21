@@ -16,7 +16,6 @@ const registerForm = document.getElementById('register-form');
 const taskForm = document.getElementById('task-form');
 const taskList = document.getElementById('task-list');
 
-const introMessage = document.getElementById('intro-message');
 const welcomeMessage = document.getElementById('welcome-message');
 
 function showDashboard(username) {
@@ -67,13 +66,11 @@ registerBtn.addEventListener('click', () => {
 });
 
 logoutBtn.addEventListener('click', () => {
-    welcomeMessage.classList.remove('hidden');
     logoutUser();
     showWelcome();
 });
 
 homeBtn.addEventListener('click', () => {
-    welcomeMessage.classList.remove('hidden');
     showWelcome();
 });
 
