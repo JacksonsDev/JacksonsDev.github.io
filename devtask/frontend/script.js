@@ -15,8 +15,11 @@ const loginForm = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
 const taskForm = document.getElementById('task-form');
 const taskList = document.getElementById('task-list');
-
 const welcomeMessage = document.getElementById('welcome-message');
+
+const createTaskToggle = document.getElementById('create-task-toggle');
+const taskFormContainer = document.getElementById('task-form-container');
+const plusIcon = createTaskToggle.querySelector('.plus-icon');
 
 function showDashboard(username) {
     welcomeMessage.textContent = `Welcome, ${username}`;
@@ -72,6 +75,12 @@ logoutBtn.addEventListener('click', () => {
 
 homeBtn.addEventListener('click', () => {
     showWelcome();
+});
+
+// Toggle task form visibility
+createTaskToggle.addEventListener('click', () => {
+    taskFormContainer.classList.toggle('expanded');
+    plusIcon.classList.toggle('rotated');
 });
 
 // Register
@@ -149,6 +158,8 @@ taskForm.addEventListener('submit', async (e) => {
         if (!res.ok) throw new Error(task.message || 'Failed to add task');
 
         taskForm.reset();
+        taskFormContainer.classList.remove('expanded'); // 👈 Collapse form
+        plusIcon.classList.remove('rotated'); // 👈 Reset icon
         loadTasks();
     } catch (err) {
         alert(err.message);

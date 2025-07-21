@@ -64,16 +64,17 @@
 
       <section id="dashboard" class="hidden">
         <p id="welcome-message">Welcome,</p>
-        <h2>Create New Task</h2>
-        <form id="task-form">
-          <input type="text" placeholder="Task Title" name="title" required />
-          <textarea
-            name="description"
-            placeholder="Task Description"
-            required
-          ></textarea>
-          <button type="submit">Add Task</button>
-        </form>
+        <h2 id="create-task-toggle" class="create-task-header">
+  Create New Task <span class="plus-icon">➕</span>
+</h2>
+
+<div id="task-form-container" class="collapsed">
+  <form id="task-form">
+    <input type="text" placeholder="Task Title" name="title" required />
+    <textarea name="description" placeholder="Task Description" required></textarea>
+    <button type="submit">Add Task</button>
+  </form>
+</div>
         <br />
         <hr />
         <br />
